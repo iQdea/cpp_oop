@@ -8,7 +8,11 @@ class TransactionRefill : public Transaction {
 public:
 	TransactionRefill(shared_ptr<TransactionLoader> transactionLoader) : Transaction(transactionLoader) {}
 	void commit(Bank* bank) override {
-		bank->findAccount(getAccount())->increaseBalance(getSum());
+		string accountName = getAccount();
+		string date = getDate();
+		shared_ptr<Account> account = bank->findAccount(accountName);
+		account->calcBalance(date);
+		account->increaseBalance(getSum());
 		cout << "Пополнение от " << this->getDate() << " выполнено" << endl << endl;
 	}
 	void rollback(Bank* bank) override {

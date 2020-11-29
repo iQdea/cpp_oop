@@ -9,9 +9,18 @@ public:
 		accountSendTo = transactionLoader->getSendTo();
 	}
 	void commit(Bank* bank) override {
-		bank->findAccount(getAccount())->decreaseBalance(getSum());
-		bank->findAccount(getSendto())->increaseBalance(getSum());
-		cout << "Перевод от " << this->getDate() << " выполнен" << endl << endl;
+		string date = getDate();
+
+		shared_ptr<Account> account = bank->findAccount(getAccount());
+		account->calcBalance(date);
+
+		shared_ptr<Account> sendTo = bank->findAccount(getSendto());
+		sendTo->calcBalance(date);
+
+		account->decreaseBalance(getSum());
+		sendTo->increaseBalance(getSum());
+
+		cout << "Перевод от " << date << " выполнен" << endl << endl;
 	}
 	void rollback(Bank* bank) override {
 		bank->findAccount(getAccount())->increaseBalance(getSum());

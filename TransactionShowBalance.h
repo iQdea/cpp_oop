@@ -11,6 +11,7 @@ public:
 		string clientName = account->getClientName();
 		string date = getDate();
 		string name = account->getTypeName();
+		account->calcBalance(date);
 		double balance = account->getBalance();
 		cout << name << endl << date << endl << accountName << endl << clientName << endl << balance << endl << endl;
 	}

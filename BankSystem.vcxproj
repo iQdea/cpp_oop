@@ -164,6 +164,7 @@
     <ClInclude Include="ClientPart.h" />
     <ClInclude Include="ClientPassport.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Date.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Param.h" />
     <ClInclude Include="Transaction.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="TransactionHandler.h" />
     <ClInclude Include="TransactionHandlerCancel.h" />
     <ClInclude Include="TransactionHandlerCheckSum.h" />
+    <ClInclude Include="TransactionHandlerNeedPositive.h" />
     <ClInclude Include="TransactionHandlerRefill.h" />
     <ClInclude Include="TransactionHandlerRefillCancel.h" />
     <ClInclude Include="TransactionHandlerSend.h" />

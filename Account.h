@@ -11,6 +11,7 @@ public:
 	double getBalance() {
 		return balance;
 	}
+	virtual void calcBalance(string date) {}
 	string getClientName() {
 		return clientName;
 	}
@@ -23,8 +24,14 @@ public:
 	void decreaseBalance(double sum) {
 		balance -= sum;
 	}
+	void setDefaultRate(double defaultRate) {
+		this->defaultRate = defaultRate;
+	}
 protected:
 	string clientName = "";
+	double defaultRate = 0;
 	double balance = 0;
+	double income = 0;
+	string date = "";
 	shared_ptr<AccountLoader> accountLoader;
 };

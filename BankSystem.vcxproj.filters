@@ -164,5 +164,11 @@
     <ClInclude Include="TransactionHandlerRefillCancel.h">
       <Filter>Файлы заголовков\Transaction\TransactionHandler\Cancel</Filter>
     </ClInclude>
+    <ClInclude Include="TransactionHandlerNeedPositive.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

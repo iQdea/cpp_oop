@@ -17,6 +17,9 @@ using namespace std;
 
 int main() {
 	setlocale(LC_ALL, "Russian");
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
 	try {
 		shared_ptr<Config> config(new Config());
 		config->readFile("test1.ini");
