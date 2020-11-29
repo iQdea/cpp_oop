@@ -1,4 +1,4 @@
-#include "iostream"
+ï»¿#include "iostream"
 #include "exception"
 
 #include "Config.h"
@@ -48,7 +48,7 @@ int main() {
 		cout << excep.what() << endl;
 	}
 	catch (...) {
-		cout << "Íåèçâåñòíàÿ îøèáêà." << endl;
+		cout << "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ Ð¾ÑˆÐ¸Ð±ÐºÐ°." << endl;
 	}
 
 	return 0;

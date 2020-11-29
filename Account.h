@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "AccountLoader.h"
 
 class Account {
@@ -26,6 +26,9 @@ public:
 	}
 	void setDefaultRate(double defaultRate) {
 		this->defaultRate = defaultRate;
+	}
+	virtual double getMaxWithdraw() {
+		return balance;
 	}
 protected:
 	string clientName = "";

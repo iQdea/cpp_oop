@@ -1,4 +1,4 @@
-#include "Bank.h"
+п»ї#include "Bank.h"
 #include <string>
 #include "Transaction.h"
 #include "TransactionCancel.h"
@@ -14,6 +14,7 @@
 #include "TransactionHandlerWithdrawal.h"
 #include "TransactionHandlerShowBalance.h"
 #include "TransactionHandlerCalcBalance.h"
+#include "TransactionHandlerNeedPositive.h"
 
 using namespace std;
 
@@ -29,13 +30,14 @@ Bank::Bank(shared_ptr<Config> config, string configSection) {
 
 	transactionHandler = shared_ptr<TransactionHandler>(new TransactionHandler());
 	transactionHandler
-		// пересчет баланса
+		// РїРµСЂРµСЃС‡РµС‚ Р±Р°Р»Р°РЅСЃР°
 		->setNext(shared_ptr<TransactionHandlerCalcBalance>(new TransactionHandlerCalcBalance()))
 
-		// промежуточные проверки
+		// РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹Рµ РїСЂРѕРІРµСЂРєРё
 		->setNext(shared_ptr<TransactionHandlerCheckSum>(new TransactionHandlerCheckSum()))
+		->setNext(shared_ptr<TransactionHandlerNeedPositive>(new TransactionHandlerNeedPositive()))
 
-		// окончательные действия
+		// РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅС‹Рµ РґРµР№СЃС‚РІРёСЏ
 		->setNext(shared_ptr<TransactionHandlerSend>(new TransactionHandlerSend()))
 		->setNext(shared_ptr<TransactionHandlerCancel>(new TransactionHandlerCancel()))
 		->setNext(shared_ptr<TransactionHandlerRefill>(new TransactionHandlerRefill()))
@@ -60,7 +62,12 @@ void Bank::loadTransactions() {
 		shared_ptr<Transaction> transaction = loadTransaction(transactionSection);
 
 		if (transactionHandler) {
-			transactionHandler->run(this, transaction);
+			try {
+				transactionHandler->run(this, transaction);
+			}
+			catch (exception e) {
+				cout << e.what() << endl;
+			}
 		}
 	}
 }
@@ -81,5 +88,5 @@ shared_ptr<Transaction> Bank::getTransaction(shared_ptr<TransactionLoader> trans
 	if (transactionType == "Cancel") {
 		return shared_ptr<TransactionCancel>(new TransactionCancel(transactionLoader));
 	}
-	throw invalid_argument("Неизвестный тип транзакции: " + transactionType);
+	throw invalid_argument("РќРµРёР·РІРµСЃС‚РЅС‹Р№ С‚РёРї С‚СЂР°РЅР·Р°РєС†РёРё: " + transactionType);
 }

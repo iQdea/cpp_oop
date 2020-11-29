@@ -12,8 +12,10 @@ public:
 			||
 			dynamic_pointer_cast<TransactionSend>(transaction))
 		{
-			if (transaction->getSum() < 0.01) {
-				throw invalid_argument("Сумма по операции должна быть не менее 0.01");
+			shared_ptr<Account> account = bank->findAccount(transaction->getAccount());
+
+			if (transaction->getSum() > account->getMaxWithdraw()) {
+				throw invalid_argument("Сумма по операции не должна превышать максимальную сумму на вывод");
 			}
 		}
 		TransactionHandler::run(bank, transaction);

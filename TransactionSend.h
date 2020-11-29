@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Transaction.h"
 
 class TransactionSend : public Transaction {
@@ -24,12 +24,12 @@ public:
 		account->decreaseBalance(getSum());
 		sendTo->increaseBalance(getSum());
 
-		cout << "Ïåðåâîä îò " << date << " âûïîëíåí" << endl << endl;
+		cout << "ÐŸÐµÑ€ÐµÐ²Ð¾Ð´ Ð¾Ñ‚ " << date << " Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½" << endl << endl;
 	}
 	void rollback(Bank* bank) override {
 		bank->findAccount(getAccount())->increaseBalance(getSum());
 		bank->findAccount(getSendto())->decreaseBalance(getSum());
-		cout << "Îòìåíà ïåðåâîäà îò " << this->getDate() << " âûïîëíåíà" << endl << endl;
+		cout << "ÐžÑ‚Ð¼ÐµÐ½Ð° Ð¿ÐµÑ€ÐµÐ²Ð¾Ð´Ð° Ð¾Ñ‚ " << this->getDate() << " Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°" << endl << endl;
 	}
 private:
 	string accountSendTo;

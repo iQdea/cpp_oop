@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Transaction.h"
 #include <iostream>
 
@@ -13,10 +13,10 @@ public:
 		shared_ptr<Account> account = bank->findAccount(accountName);
 
 		account->increaseBalance(getSum());
-		cout << "Пополнение от " << this->getDate() << " выполнено" << endl << endl;
+		cout << "РџРѕРїРѕР»РЅРµРЅРёРµ РѕС‚ " << this->getDate() << " РІС‹РїРѕР»РЅРµРЅРѕ" << endl << endl;
 	}
 	void rollback(Bank* bank) override {
 		bank->findAccount(getAccount())->decreaseBalance(getSum());
-		cout << "Отмена пополнения от " << this->getDate() << " выполнена" << endl << endl;
+		cout << "РћС‚РјРµРЅР° РїРѕРїРѕР»РЅРµРЅРёСЏ РѕС‚ " << this->getDate() << " РІС‹РїРѕР»РЅРµРЅР°" << endl << endl;
 	}
 };

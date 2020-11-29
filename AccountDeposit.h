@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Account.h"
 
 class AccountDeposit : public Account {
@@ -9,7 +9,7 @@ public:
 		return startBalance;
 	}
 	string getTypeName() override {
-		return "Депозит";
+		return "Р”РµРїРѕР·РёС‚";
 	}
 private:
 	string startDate = "";

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include "Account.h"
 #include "Date.h"
@@ -10,7 +10,7 @@ public:
 	AccountDebit(shared_ptr<AccountLoader> accountLoader) : Account(accountLoader) {}
 	virtual ~AccountDebit() {};
 	string getTypeName() override {
-		return "Äåáåòîâûé ñ÷åò";
+		return "Ð”ÐµÐ±ÐµÑ‚Ð¾Ð²Ñ‹Ð¹ ÑÑ‡ÐµÑ‚";
 	}
 
 	// 2020-10-02 => 2020-12-10
@@ -18,12 +18,12 @@ public:
 	void calcIncome(string date) {
 		int diffDays = Date::getDays(this->date, date);
 		if (diffDays < 0) {
-			throw invalid_argument("Íåâåðíûé ïîðÿäîê äàò â òåñòîâîì ôàéëå");
+			throw invalid_argument("ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð¿Ð¾Ñ€ÑÐ´Ð¾Ðº Ð´Ð°Ñ‚ Ð² Ñ‚ÐµÑÑ‚Ð¾Ð²Ð¾Ð¼ Ñ„Ð°Ð¹Ð»Ðµ");
 		}
 
 		if (diffDays > 0 && balance > 0) {
 			double delta = (defaultRate / 100) / 365 * diffDays * balance;
-			cout << "Íà÷èñëåíû ïðîöåíòû " << delta << " ñ " << this->date << " ïî " << date << endl;
+			cout << "ÐÐ°Ñ‡Ð¸ÑÐ»ÐµÐ½Ñ‹ Ð¿Ñ€Ð¾Ñ†ÐµÐ½Ñ‚Ñ‹ " << delta << " Ñ " << this->date << " Ð¿Ð¾ " << date << endl;
 			income += delta;
 			this->date = date;
 		}
@@ -38,7 +38,7 @@ public:
 		string currDate = Date::firstDayOfNextMonth(this->date);
 		while (currDate <= date) {
 			calcIncome(currDate);
-			cout << "Çà÷èñëåíû íà ñ÷åò ïðîöåíòû " << income << " ïî " << this->date << endl;
+			cout << "Ð—Ð°Ñ‡Ð¸ÑÐ»ÐµÐ½Ñ‹ Ð½Ð° ÑÑ‡ÐµÑ‚ Ð¿Ñ€Ð¾Ñ†ÐµÐ½Ñ‚Ñ‹ " << income << " Ð¿Ð¾ " << this->date << endl;
 			balance += income;
 			income = 0;
 			currDate = Date::firstDayOfNextMonth(currDate);

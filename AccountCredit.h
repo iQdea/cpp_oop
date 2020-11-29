@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Account.h"
 
 class AccountCredit : public Account {
@@ -11,7 +11,10 @@ public:
 		creditFee = accountLoader->getCreditFee();
 	}
 	string getTypeName() override {
-		return "Кредитный счет";
+		return "РљСЂРµРґРёС‚РЅС‹Р№ СЃС‡РµС‚";
+	}
+	virtual double getMaxWithdraw() {
+		return balance + creditLimit;
 	}
 private:
 	double creditLimit = 0;

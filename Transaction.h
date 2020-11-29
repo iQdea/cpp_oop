@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "TransactionLoader.h"
 #include "Bank.h"
 

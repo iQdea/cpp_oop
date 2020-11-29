@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <stdexcept>
 #include "ClientBuilder.h"
 #include "ClientLoader.h"
@@ -19,7 +19,7 @@ public:
 		string passport = clientLoader->getPassport();
 
 		if (name == "" || surname == "") {
-			throw invalid_argument("Èìÿ è ôàìèëèÿ êëèåíòà îáÿçàòåëüíû");
+			throw invalid_argument("Ð˜Ð¼Ñ Ð¸ Ñ„Ð°Ð¼Ð¸Ð»Ð¸Ñ ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð° Ð¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹");
 		}
 
 		this->clientBuilder->produceClientName(name, surname);

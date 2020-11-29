@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <vector>
 #include <string>
 #include <stdexcept>
@@ -42,7 +42,7 @@ public:
 		if (factoryType == "Credit") {
 			return accountCreditFactory;
 		}
-		throw invalid_argument("Неизвестный тип счета: " + factoryType);
+		throw invalid_argument("РќРµРёР·РІРµСЃС‚РЅС‹Р№ С‚РёРї СЃС‡РµС‚Р°: " + factoryType);
 	}
 	void loadAccounts() {
 		vector<string> accountSectionList = bankLoader->getAccounts();
@@ -70,7 +70,7 @@ public:
 		if (accountList.count(accountSection) > 0) {
 			return accountList[accountSection];
 		}
-		throw invalid_argument("Счет не найден: " + accountSection);
+		throw invalid_argument("РЎС‡РµС‚ РЅРµ РЅР°Р№РґРµРЅ: " + accountSection);
 	}
 private:
 	string configSection = "";

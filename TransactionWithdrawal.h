@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Transaction.h"
 
 class TransactionWithdrawal : public Transaction {
@@ -7,10 +7,10 @@ public:
 	void commit(Bank* bank) override 
 	{
 		bank->findAccount(getAccount())->decreaseBalance(getSum());
-		cout << "Ñíÿòèå äåíåã îò " << this->getDate() << " âûïîëíåíî" << endl << endl;
+		cout << "Ð¡Ð½ÑÑ‚Ð¸Ðµ Ð´ÐµÐ½ÐµÐ³ Ð¾Ñ‚ " << this->getDate() << " Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾" << endl << endl;
 	}
 	void rollback(Bank* bank) override {
 		bank->findAccount(getAccount())->increaseBalance(getSum());
-		cout << "Îòìåíà ñíÿòèÿ äåíåã îò " << this->getDate() << " âûïîëíåíà" << endl << endl;
+		cout << "ÐžÑ‚Ð¼ÐµÐ½Ð° ÑÐ½ÑÑ‚Ð¸Ñ Ð´ÐµÐ½ÐµÐ³ Ð¾Ñ‚ " << this->getDate() << " Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°" << endl << endl;
 	}
 };

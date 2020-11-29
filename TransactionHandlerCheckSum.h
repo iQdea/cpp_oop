@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Bank.h"
 #include "Transaction.h"
 #include "TransactionHandler.h"
@@ -13,7 +13,7 @@ public:
 			dynamic_pointer_cast<TransactionSend>(transaction)) 
 		{
 			if (transaction->getSum() < 0.01) {
-				throw invalid_argument("Ñóììà ïî îïåðàöèè äîëæíà áûòü íå ìåíåå 0.01");
+				throw invalid_argument("Ð¡ÑƒÐ¼Ð¼Ð° Ð¿Ð¾ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð´Ð¾Ð»Ð¶Ð½Ð° Ð±Ñ‹Ñ‚ÑŒ Ð½Ðµ Ð¼ÐµÐ½ÐµÐµ 0.01");
 			}
 		}
 		TransactionHandler::run(bank, transaction);

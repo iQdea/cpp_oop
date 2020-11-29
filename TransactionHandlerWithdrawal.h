@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Bank.h"
 #include "Transaction.h"
 #include "TransactionHandler.h"
@@ -15,5 +15,5 @@ private:
 	shared_ptr<TransactionHandler> nextTransactionHandler;
 	//shared_ptr<ClientDirector> client;
 	//&& (client->IsDoubtful() != 0)
-	//else {cout << "Êëèåíò ñîìíèòåëüíûé, îïåðàöèÿ íå âîçìîæíà!" << endl << endl;}
+	//else {cout << "ÐšÐ»Ð¸ÐµÐ½Ñ‚ ÑÐ¾Ð¼Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹, Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ñ Ð½Ðµ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð°!" << endl << endl;}
 };
