@@ -12,7 +12,7 @@ public:
     }
     shared_ptr<Account> createAccount() const override {
         shared_ptr<AccountDebit> account(new AccountDebit(accountLoader));
-        account->setDefaultRate(defaultRate);
+        account->setRate(defaultRate);
         account->load();
         return account;
     }

@@ -15,6 +15,7 @@ public:
 	double getStartBalance() { return getNumber<double>("StartBalance"); }
 	double getCreditLimit() { return getNumber<double>("CreditLimit"); }
 	double getCreditFee() { return getNumber<double>("CreditFee"); }
+	unsigned int getDuration() { return getNumber<unsigned int>("Duration"); }
 };
 //Client = Client2
 //Type = Deposit

@@ -11,7 +11,41 @@ public:
 	string getTypeName() override {
 		return "Депозит";
 	}
+	void load() override {
+		Account::load();
+		duration = accountLoader->getDuration();
+	}
+	bool isDurationEnded() {
+		return Date::getDays(date, startDate) > duration;
+	}
+	virtual double getMaxWithdraw() {
+		return isDurationEnded() ? Account::getMaxWithdraw() : 0;
+	}
+	double calcRate() {
+		for (auto i : rates)
+			if (startBalance <= i.first)
+				return i.second;
+
+		return defaultRate;
+	}
+	virtual void increaseBalance(double sum) {
+		if (balance == 0) {
+			startDate = date;
+			startBalance = sum;
+			rate = calcRate();
+		}
+		Account::increaseBalance(sum);
+	}
+	void setDefaultRate(double defaultRate) {
+		this->defaultRate = defaultRate;
+	}
+	void setRates(vector<pair<double, double>> rates) {
+		this->rates = rates;
+	}
 private:
 	string startDate = "";
 	double startBalance = 0;
+	unsigned int duration = 0;
+	double defaultRate = 0;
+	vector<pair<double, double>> rates;
 };
