@@ -32,14 +32,6 @@ public:
 	shared_ptr<Client> getClient() {
 		return clientBuilder->getClient();
 	}
-	bool IsDoubtful() {
-		bool IsDubtful = 0;
-		string address = clientLoader->getAddress();
-		string passport = clientLoader->getPassport();
-		if ((address == "")||(passport == "")||((address == "")&&(passport == "")))
-			IsDubtful = 1;
-		return IsDubtful;
-	}
 
 private:
 	shared_ptr<ClientLoader> clientLoader;

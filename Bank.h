@@ -23,9 +23,9 @@ public:
 	void addAccount(string& accountSection, const shared_ptr<AccountFactory> factory) {
 		accountList[accountSection] = factory->createAccount();
 	}
-	void addClient(ClientDirector& clientDirector) {
+	void addClient(string& clientSection, ClientDirector& clientDirector) {
 		clientDirector.buildClient();
-		clientList.push_back(clientDirector.getClient());
+		clientList[clientSection] = clientDirector.getClient();
 	}
 	void load() {
 		loadClients();
@@ -58,7 +58,7 @@ public:
 		vector<string> clientSectionList = bankLoader->getClients();
 		for (string& clientSection : clientSectionList) {
 			clientLoader->setConfigSection(clientSection);
-			addClient(clientDirector);
+			addClient(clientSection, clientDirector);
 		}
 	}
 
@@ -72,10 +72,17 @@ public:
 		}
 		throw invalid_argument("Счет не найден: " + accountSection);
 	}
+
+	shared_ptr<Client> findClient(string clientSection) {
+		if (clientList.count(clientSection) > 0) {
+			return clientList[clientSection];
+		}
+		throw invalid_argument("Клиент не найден: " + clientSection);
+	}
 private:
 	string configSection = "";
 	map<string, shared_ptr<Account>> accountList;
-	vector<shared_ptr<Client>> clientList;
+	map<string, shared_ptr<Client>> clientList;
 	shared_ptr<Config> config = 0;
 	shared_ptr<BankLoader> bankLoader;
 	shared_ptr<AccountLoader> accountLoader;

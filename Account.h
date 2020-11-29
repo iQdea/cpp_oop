@@ -82,6 +82,9 @@ public:
 			this->withdrawLimit = withdrawLimit;
 		}
 	}
+	double getWithdrawLimit() {
+		return withdrawLimit;
+	}
 protected:
 	string clientName = "";
 	double rate = 0;
