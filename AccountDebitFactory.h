@@ -7,13 +7,15 @@ class AccountDebitFactory : public AccountFactory {
 public:
     AccountDebitFactory(
         shared_ptr<BankLoader> bankLoader, shared_ptr<AccountLoader> accountLoader
-    ) : AccountFactory(accountLoader) {
+    ) : AccountFactory(bankLoader, accountLoader) {
         defaultRate = bankLoader->getDebitRate();
     }
     shared_ptr<Account> createAccount() const override {
         shared_ptr<AccountDebit> account(new AccountDebit(accountLoader));
+        preLoadAccount(account);
         account->setRate(defaultRate);
-        account->load();
+        account->load();        
+        
         return account;
     }
 private:

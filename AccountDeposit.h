@@ -13,7 +13,7 @@ public:
 	}
 	void load() override {
 		Account::load();
-		duration = accountLoader->getDuration();
+		setDuration(accountLoader->getDuration());
 	}
 	bool isDurationEnded() {
 		return Date::getDays(date, startDate) > (int) duration;
@@ -22,7 +22,7 @@ public:
 		return isDurationEnded() ? Account::getMaxWithdraw() : 0;
 	}
 	double calcRate() {
-		for (auto i : rates)
+		for (auto &i : rates)
 			if (startBalance <= i.first)
 				return i.second;
 
@@ -41,6 +41,11 @@ public:
 	}
 	void setRates(vector<pair<double, double>> rates) {
 		this->rates = rates;
+	}
+	void setDuration(unsigned int duration) {
+		if (duration > 0) {
+			this->duration = duration;
+		}
 	}
 private:
 	string startDate = "";

@@ -24,6 +24,9 @@ public:
 	void decreaseBalance(double sum) {
 		balance -= sum;
 	}
+	virtual double getRate() {
+		return rate;
+	}
 	void setRate(double rate) {
 		this->rate = rate;
 	}
@@ -36,9 +39,16 @@ public:
 			throw invalid_argument("Неверный порядок дат в тестовом файле");
 		}
 
-		if (diffDays > 0 && balance > 0) {
+		double rate = getRate();
+		if (diffDays > 0 && balance > 0 && rate != 0) {
 			double delta = (rate / 100) / 365 * diffDays * balance;
-			cout << "Начислены проценты " << delta << " с " << this->date << " по " << date << endl;
+			if (rate > 0) {
+				cout << "Начислены проценты ";
+			}
+			else {
+				cout << "Рассчитана комиссия ";
+			}
+			cout << delta << " с " << this->date << " по " << date << endl;
 			income += delta;
 			this->date = date;
 		}
@@ -53,7 +63,13 @@ public:
 		string currDate = Date::firstDayOfNextMonth(this->date);
 		while (currDate <= date) {
 			calcIncome(currDate);
-			cout << "Зачислены на счет проценты " << income << " по " << this->date << endl;
+			if (income > 0) {
+				cout << "Зачислены на счет проценты ";
+			}
+			else {
+				cout << "Списана со счета комиссия ";
+			}
+			cout << income << " по " << this->date << endl;
 			balance += income;
 			income = 0;
 			currDate = Date::firstDayOfNextMonth(currDate);
@@ -61,11 +77,17 @@ public:
 
 		calcIncome(date);
 	}
+	void setWithdrawLimit(double withdrawLimit) {
+		if (withdrawLimit > 0) {
+			this->withdrawLimit = withdrawLimit;
+		}
+	}
 protected:
 	string clientName = "";
 	double rate = 0;
 	double balance = 0;
 	double income = 0;
+	double withdrawLimit = 0;
 	string date = "";
 	shared_ptr<AccountLoader> accountLoader;
 };
