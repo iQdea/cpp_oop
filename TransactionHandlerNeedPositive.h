@@ -18,8 +18,14 @@ public:
 				throw invalid_argument("Сумма по операции для сомнительного клиента не должна превышать лимит на вывод");
 			}
 
-			if (transaction->getSum() > account->getMaxWithdraw()) {
-				throw invalid_argument("Сумма по операции не должна превышать максимальную сумму на вывод");
+			double maxWithdraw = account->getMaxWithdraw();
+			if (transaction->getSum() > maxWithdraw) {
+				if (maxWithdraw == 0 && account->getBalance() > 0 && dynamic_pointer_cast<AccountDeposit>(account)) {
+					throw invalid_argument("Операция снятия и перевода по депозиту запрещены до истечения его срока");
+				}
+				else {
+					throw invalid_argument("Сумма по операции не должна превышать максимальную сумму на вывод");
+				}
 			}
 		}
 		TransactionHandler::run(bank, transaction);
