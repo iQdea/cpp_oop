@@ -15,6 +15,7 @@ public:
 		string accountName = getAccount();
 		string date = getDate();
 		shared_ptr<Account> account = bank->findAccount(accountName);
+		cout << accountName << ":" << endl;
 		account->calcBalance(date);
 	}
 	virtual void commit(Bank* bank) {}
