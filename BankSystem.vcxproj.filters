@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\Config">
+      <UniqueIdentifier>{cd6426cb-fbd3-407f-9a57-5852f715f393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Client">
+      <UniqueIdentifier>{8304f171-0062-41ee-b9a5-a48c017a8f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Account">
+      <UniqueIdentifier>{87ba142e-92de-4f6f-a7e6-a1ffa479fe04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Bank">
+      <UniqueIdentifier>{aa7a4c8c-25df-48a0-b002-d1f64a9a72ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Transaction">
+      <UniqueIdentifier>{b77ae6a3-fc92-405e-88f8-067266487017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Transaction\TransactionHandler">
+      <UniqueIdentifier>{437c2988-1ca3-4a20-a06b-fa6aa6ebfadd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Transaction\TransactionHandler\Cancel">
+      <UniqueIdentifier>{be22a53f-2a48-4a5d-aea7-30b129523e4d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Config.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Bank.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Config.h">
+      <Filter>Файлы заголовков\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Param.h">
+      <Filter>Файлы заголовков\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientPart.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientBuilder.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientName.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientAddress.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientPassport.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientDirector.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientLoader.h">
+      <Filter>Файлы заголовков\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Account.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountDebit.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountDeposit.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountCredit.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountFactory.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountDebitFactory.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountDepositFactory.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountCreditFactory.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Bank.h">
+      <Filter>Файлы заголовков\Bank</Filter>
+    </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="BankLoader.h">
+      <Filter>Файлы заголовков\Bank</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountLoader.h">
+      <Filter>Файлы заголовков\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Transaction.h">
+      <Filter>Файлы заголовков\Transaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionLoader.h">
+      <Filter>Файлы заголовков\Transaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionRefill.h">
+      <Filter>Файлы заголовков\Transaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionWithdrawal.h">
+      <Filter>Файлы заголовков\Transaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionSend.h">
+      <Filter>Файлы заголовков\Transaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionCancel.h">
+      <Filter>Файлы заголовков\Transaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionShowBalance.h">
+      <Filter>Файлы заголовков\Transaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandler.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerRefill.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerCheckSum.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerWithdrawal.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerShowBalance.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerSend.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerCancel.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerWithdrawalCancel.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler\Cancel</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerSendCancel.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler\Cancel</Filter>
+    </ClInclude>
+    <ClInclude Include="TransactionHandlerRefillCancel.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler\Cancel</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
