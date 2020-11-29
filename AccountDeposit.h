@@ -16,7 +16,7 @@ public:
 		duration = accountLoader->getDuration();
 	}
 	bool isDurationEnded() {
-		return Date::getDays(date, startDate) > duration;
+		return Date::getDays(date, startDate) > (int) duration;
 	}
 	virtual double getMaxWithdraw() {
 		return isDurationEnded() ? Account::getMaxWithdraw() : 0;

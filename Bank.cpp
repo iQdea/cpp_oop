@@ -25,7 +25,7 @@ Bank::Bank(shared_ptr<Config> config, string configSection) {
 
 	accountLoader = shared_ptr<AccountLoader>(new AccountLoader(config));
 	accountDebitFactory = shared_ptr<AccountDebitFactory>(new AccountDebitFactory(bankLoader, accountLoader));
-	accountDepositFactory = shared_ptr<AccountDepositFactory>(new AccountDepositFactory(accountLoader));
+	accountDepositFactory = shared_ptr<AccountDepositFactory>(new AccountDepositFactory(bankLoader, accountLoader));
 	accountCreditFactory = shared_ptr<AccountCreditFactory>(new AccountCreditFactory(accountLoader));
 
 	transactionHandler = shared_ptr<TransactionHandler>(new TransactionHandler());
