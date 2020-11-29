@@ -170,6 +170,7 @@
     <ClInclude Include="Transaction.h" />
     <ClInclude Include="TransactionCancel.h" />
     <ClInclude Include="TransactionHandler.h" />
+    <ClInclude Include="TransactionHandlerCalcBalance.h" />
     <ClInclude Include="TransactionHandlerCancel.h" />
     <ClInclude Include="TransactionHandlerCheckSum.h" />
     <ClInclude Include="TransactionHandlerNeedPositive.h" />

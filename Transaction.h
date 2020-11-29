@@ -11,6 +11,12 @@ public:
 	string getAccount() {
 		return account;
 	}
+	virtual void calcBalance(Bank* bank) {
+		string accountName = getAccount();
+		string date = getDate();
+		shared_ptr<Account> account = bank->findAccount(accountName);
+		account->calcBalance(date);
+	}
 	virtual void commit(Bank* bank) {}
 	virtual void rollback(Bank* bank) {}
 	double getSum() {

@@ -11,7 +11,7 @@ public:
 		string accountName = getAccount();
 		string date = getDate();
 		shared_ptr<Account> account = bank->findAccount(accountName);
-		account->calcBalance(date);
+
 		account->increaseBalance(getSum());
 		cout << "Пополнение от " << this->getDate() << " выполнено" << endl << endl;
 	}

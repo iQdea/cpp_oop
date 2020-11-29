@@ -13,6 +13,7 @@
 #include "TransactionHandlerRefill.h"
 #include "TransactionHandlerWithdrawal.h"
 #include "TransactionHandlerShowBalance.h"
+#include "TransactionHandlerCalcBalance.h"
 
 using namespace std;
 
@@ -28,7 +29,13 @@ Bank::Bank(shared_ptr<Config> config, string configSection) {
 
 	transactionHandler = shared_ptr<TransactionHandler>(new TransactionHandler());
 	transactionHandler
+		// пересчет баланса
+		->setNext(shared_ptr<TransactionHandlerCalcBalance>(new TransactionHandlerCalcBalance()))
+
+		// промежуточные проверки
 		->setNext(shared_ptr<TransactionHandlerCheckSum>(new TransactionHandlerCheckSum()))
+
+		// окончательные действия
 		->setNext(shared_ptr<TransactionHandlerSend>(new TransactionHandlerSend()))
 		->setNext(shared_ptr<TransactionHandlerCancel>(new TransactionHandlerCancel()))
 		->setNext(shared_ptr<TransactionHandlerRefill>(new TransactionHandlerRefill()))

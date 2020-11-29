@@ -170,5 +170,8 @@
     <ClInclude Include="Date.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="TransactionHandlerCalcBalance.h">
+      <Filter>Файлы заголовков\Transaction\TransactionHandler</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

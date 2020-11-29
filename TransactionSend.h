@@ -8,14 +8,18 @@ public:
 		Transaction::load();
 		accountSendTo = transactionLoader->getSendTo();
 	}
+	virtual void calcBalance(Bank* bank) {
+		Transaction::calcBalance(bank);
+
+		string accountName = getSendto();
+		string date = getDate();
+		shared_ptr<Account> account = bank->findAccount(accountName);
+		account->calcBalance(date);
+	}
 	void commit(Bank* bank) override {
 		string date = getDate();
-
 		shared_ptr<Account> account = bank->findAccount(getAccount());
-		account->calcBalance(date);
-
 		shared_ptr<Account> sendTo = bank->findAccount(getSendto());
-		sendTo->calcBalance(date);
 
 		account->decreaseBalance(getSum());
 		sendTo->increaseBalance(getSum());
